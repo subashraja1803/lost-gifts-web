@@ -1,21 +1,21 @@
 .navigationBar {
-	padding: 0 1rem;
-	background: rgba(13, 162, 194, 0.5);
-	height: 4rem;
-	display: flex;
-	justify-content: flex-end;
-	align-items: center;
-	font-size: 1.5rem;
-	color: wheat;
-	gap: 2rem;
-	.navigationItem {
-		display: flex;
-		align-items: center;
-		height: 100%;
-		&:hover {
-			background-color: rgba(208, 208, 208, 0.6);
-			color: #036ddd;
-			cursor: pointer;
-		}
-	}
+  font-family: "Quick Kiss";
+  padding: 0 1rem;
+  background: rgba(175, 175, 175, 0.3);
+  height: 4rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #000000;
+  gap: 2rem;
+  .navigationItem {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    &:hover {
+      color: #003ab8;
+      cursor: pointer;
+    }
+  }
 }

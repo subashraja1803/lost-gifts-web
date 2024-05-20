@@ -1,8 +1,27 @@
 .dashboard {
-    height: 100vh;
-    width: 100vw;
-    opacity: 0.8;
-    background-repeat: no-repeat;
-    background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  background-image: url("../../assets/images/pexels-pixabay-235985.jpg");
+  background-size: cover;
+  background-repeat: repeat-y;
+  .titleText {
+    font-family: "Daisy Days", "Lucida Handwriting";
+    height: 15rem;
+    font-size: 7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
+  .description {
+    font-family: "Quick Kiss";
+    font-size: 1.7rem;
+    text-align: center;
+    a {
+      color: #000;
+      &:hover {
+        color: rgb(1, 60, 143);
+      }
+    }
+  }
 }

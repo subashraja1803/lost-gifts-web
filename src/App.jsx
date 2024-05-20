@@ -1,11 +1,19 @@
-import { BrowserRouter } from 'react-router-dom';
-import './App.css';
-import RouteSwitch from './pages/base';
+import { BrowserRouter } from "react-router-dom";
+import "./App.css";
+import RouteSwitch from "./pages/base";
+import { Provider } from "react-redux";
+import { configureStore } from "@reduxjs/toolkit";
+import lostGiftsStore from "./store";
 
 function App() {
+  const store = configureStore({
+    reducer: lostGiftsStore,
+  });
   return (
     <BrowserRouter>
-      <RouteSwitch />
+      <Provider store={store}>
+        <RouteSwitch />
+      </Provider>
     </BrowserRouter>
   );
 }
