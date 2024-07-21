@@ -18,6 +18,11 @@ export const Register = (props) => {
         <Password />
         <Password isConfirmPW={true} />
         <RegisterButton />
+        <div className={styles.loginRedirect}>
+          <span>
+            Have an account? <a href="/login">Log In</a>
+          </span>
+        </div>
       </div>
     </div>
   );

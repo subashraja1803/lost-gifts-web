@@ -5,7 +5,7 @@ import { Input } from "antd";
 import { LostGiftsActionHandlers } from "../../../store/actionHandlers";
 import { EMPTY_STRING } from "../../../constants/frozenObjects";
 
-export const FullName = ({ registerDetails, setRegisterDetails }) => {
+const FullName = ({ registerDetails, setRegisterDetails }) => {
   const onFullNameChange = ({ target: { value } }) => {
     if (value !== null) setRegisterDetails({ fullName: value });
   };

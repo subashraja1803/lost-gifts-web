@@ -9,7 +9,7 @@ import { checkUniqueUsername } from "../../../service/serviceFunctions";
 import { useDebouncedCallback } from "use-debounce";
 import { FcApproval } from "react-icons/fc";
 
-export const Username = ({ registerDetails, setRegisterDetails }) => {
+const Username = ({ registerDetails, setRegisterDetails }) => {
   const [isUnique, setIsUnique] = useState(true);
   const { username = "" } = registerDetails;
 

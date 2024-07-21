@@ -15,3 +15,7 @@
   src: local("QuickKiss"),
     url("./assets/fonts/QuickKiss.ttf") format("truetype");
 }
+
+body {
+  font-family: "Quick Kiss", "Lucida Handwriting";
+}

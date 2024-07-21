@@ -6,7 +6,7 @@ import { EMPTY_STRING } from "../../../constants/frozenObjects";
 import Utility from "../../../Utils/Utility";
 import { LostGiftsActionHandlers } from "../../../store/actionHandlers";
 
-export const Email = ({ registerDetails, setRegisterDetails }) => {
+const Email = ({ registerDetails, setRegisterDetails }) => {
   const isValidEmail = Utility.checkValidEmail(registerDetails?.email);
   const onEmailChange = ({ target: { value } }) => {
     setRegisterDetails({ email: value });

@@ -1,3 +1,5 @@
+import CryptoJS from "crypto-js";
+
 export default class Utility {
   static isArray(array) {
     return Array.isArray(array);
@@ -35,5 +37,17 @@ export default class Utility {
     if (this.isEmptyString(text)) return true;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(text);
+  }
+
+  static encryptPassword(text) {
+    const iv = CryptoJS.lib.WordArray.random(16);
+    const encryptedData = CryptoJS.AES.encrypt(
+      text,
+      process.env.REACT_APP_CRYPTO_KEY,
+      {
+        iv: iv,
+      }
+    ).toString();
+    return `${encryptedData}_${iv.toString()}`;
   }
 }

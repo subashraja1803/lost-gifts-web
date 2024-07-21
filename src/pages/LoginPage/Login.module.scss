@@ -1,9 +1,9 @@
-.registerPage {
+.loginPage {
   padding: 3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  .registerTitle {
+  .loginTitle {
     font-family: "Daisy Days";
     font-size: 4rem;
     padding: 1rem;
@@ -29,11 +29,6 @@
         color: rgb(39, 1, 108);
         font-family: "Lucida Sans";
       }
-      .checkMark {
-        position: absolute;
-        right: -2rem;
-        top: 0.2rem;
-      }
       .invalidText {
         position: absolute;
         bottom: -1rem;
@@ -46,11 +41,11 @@
     }
   }
 
-  .registerButton {
+  .loginButton {
     margin-top: 1rem;
     text-align: center;
   }
-  .loginRedirect {
+  .registerRedirect {
     text-align: center;
     a {
       color: #000000c9;

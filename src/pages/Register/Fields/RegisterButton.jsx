@@ -2,21 +2,26 @@ import React from "react";
 import styles from "../Register.module.scss";
 import { Button } from "antd";
 import { connect } from "react-redux";
-import bcrypt from "bcryptjs-react";
 import { registerUser } from "../../../service/serviceFunctions";
 import { checkValidRegisterPayload } from "../registerUtils";
+import { useNavigate } from "react-router-dom";
+import Utility from "../../../Utils/Utility";
 
 function RegisterButton({ registerDetails }) {
+  const navigate = useNavigate();
   const onRegisterClick = () => {
     if (checkValidRegisterPayload(registerDetails)) {
       const { password } = registerDetails;
-      bcrypt.hash(password, 10).then((hashedPW) => {
-        registerUser({
-          username: registerDetails?.username,
-          email: registerDetails?.email,
-          fullName: registerDetails?.fullName,
-          password: hashedPW,
-        });
+      console.log(Utility.encryptPassword(password));
+      registerUser({
+        username: registerDetails?.username,
+        email: registerDetails?.email,
+        fullName: registerDetails?.fullName,
+        password: Utility.encryptPassword(password),
+      }).then(({ status }) => {
+        if (status === "ok") {
+          navigate("/register/otp-verification");
+        }
       });
     }
   };
