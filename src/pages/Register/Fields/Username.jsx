@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import styles from "../Register.module.scss";
 import { Input } from "antd";
@@ -66,5 +67,10 @@ const mapDispatchToProps = (dispatch) => ({
   setRegisterDetails: (payload) =>
     dispatch(LostGiftsActionHandlers.setRegisterDetails(payload)),
 });
+
+Username.propTypes = {
+  registerDetails: PropTypes.object.isRequired,
+  setRegisterDetails: PropTypes.func.isRequired,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Username);

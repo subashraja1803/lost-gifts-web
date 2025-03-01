@@ -7,7 +7,7 @@ import Username from "./Fields/Username";
 import RegisterButton from "./Fields/RegisterButton";
 import Password from "./Fields/Password";
 
-export const Register = (props) => {
+export const Register = () => {
   return (
     <div className={styles.registerPage}>
       <div className={styles.registerTitle}>Register</div>
@@ -28,7 +28,7 @@ export const Register = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = () => ({});
 
 const mapDispatchToProps = {};
 

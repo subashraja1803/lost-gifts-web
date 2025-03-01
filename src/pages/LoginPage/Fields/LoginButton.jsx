@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styles from "../Login.module.scss";
 import { Button } from "antd";
 import { connect } from "react-redux";
@@ -7,8 +8,16 @@ import { loginUser } from "../../../service/serviceFunctions";
 import Utility from "../../../Utils/Utility";
 import { EMPTY_STRING } from "../../../constants/frozenObjects";
 import { checkLoginPayload } from "../loginUtils";
+import { LOGIN_RESPONSE_CODES } from "../../../constants/loginConstants";
+import { toast } from "react-toastify";
+import { LostGiftsActionHandlers } from "../../../store/actionHandlers";
 
-function LoginButton({ loginDetails }) {
+function LoginButton({
+  loginDetails,
+  loginProps,
+  setUserDetails,
+  userDetails,
+}) {
   const navigate = useNavigate();
   const onLoginClick = () => {
     const loginPayload = {
@@ -23,10 +32,27 @@ function LoginButton({ loginDetails }) {
         ...loginPayload,
         password: encryptedPW,
       })
-        .then(({ status }) => {
-          if (status === "ok") navigate("/");
+        .then(({ status, data, responseCode, message }) => {
+          if (
+            status === "ok" &&
+            responseCode === LOGIN_RESPONSE_CODES.SUCCESS
+          ) {
+            const { token } = data;
+            document.cookie = `token=${token}`;
+            document.cookie = `user=${loginPayload.username}`;
+            console.log(document.cookie);
+            setUserDetails({
+              ...userDetails,
+              isLoggedIn: true,
+            });
+            navigate("/");
+          } else if (status === "not ok") {
+            toast.error(message);
+          }
         })
-        .catch(console.log);
+        .catch(() => {
+          toast("Internal Server Error, Try again later");
+        });
     }
   };
   return (
@@ -47,6 +73,18 @@ function LoginButton({ loginDetails }) {
 }
 const mapStateToProps = (state) => ({
   loginDetails: state.loginDetails,
+  userDetails: state.userDetails,
 });
 
-export default connect(mapStateToProps, null)(LoginButton);
+const mapDispatchToProps = (dispatch) => ({
+  setUserDetails: (payload) =>
+    dispatch(LostGiftsActionHandlers.setUserDetails(payload)),
+});
+
+LoginButton.propTypes = {
+  userDetails: PropTypes.object.isRequired,
+  loginDetails: PropTypes.object.isRequired,
+  setUserDetails: PropTypes.func.isRequired,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginButton);

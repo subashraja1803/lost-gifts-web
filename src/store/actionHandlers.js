@@ -7,4 +7,7 @@ export class LostGiftsActionHandlers {
   static setLoginDetails(payload) {
     return { type: REDUCER_ACTIONS.SET_LOGIN_DETAILS, payload };
   }
+  static setUserDetails(payload) {
+    return { type: REDUCER_ACTIONS.SET_USER_DETAILS, payload };
+  }
 }
