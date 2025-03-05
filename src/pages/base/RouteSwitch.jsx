@@ -1,6 +1,5 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import Dashboard from "../Dashboard";
 import Register from "../Register";
 import styles from "./Base.module.scss";
 import { ToastContainer } from "react-toastify";
@@ -8,10 +7,9 @@ import "react-toastify/dist/ReactToastify.css";
 import OTPVerification from "../OTPVerification";
 import LoginRedirect from "../LoginRedirect";
 import LoginPage from "../LoginPage";
-import { connect } from "react-redux";
-import LoggedInDashBoard from "../LoggedInDashBoard/LoggedInDashBoard";
+import Dashboard from "../Dashboard/Dashboard";
 
-function RouteSwitch({ isLoggedIn }) {
+function RouteSwitch() {
   return (
     <div className={styles.backGround}>
       <ToastContainer
@@ -26,10 +24,7 @@ function RouteSwitch({ isLoggedIn }) {
         theme="light"
       />
       <Routes>
-        <Route
-          path="/"
-          element={isLoggedIn ? <LoggedInDashBoard /> : <Dashboard />}
-        />
+        <Route path="/" element={<Dashboard />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<LoginPage />} />
         <Route
@@ -42,8 +37,4 @@ function RouteSwitch({ isLoggedIn }) {
   );
 }
 
-const mapStateToProps = ({ userDetails }) => ({
-  isLoggedIn: userDetails.isLoggedIn,
-});
-
-export default connect(mapStateToProps, null)(RouteSwitch);
+export default RouteSwitch;

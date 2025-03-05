@@ -18,7 +18,7 @@ const Username = (props) => {
 
   const isNameValid = Utility.isAlphaNumericLowerCase(username);
   return (
-    <div className={styles.UserName}>
+    <div className={styles.userName}>
       <span>Username:</span>
       <div className={styles.formInput}>
         <Input

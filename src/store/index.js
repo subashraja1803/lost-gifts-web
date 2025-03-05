@@ -16,7 +16,10 @@ const loginDetailsInitial = {
 
 const initialState = {
   userDetails: {
-    isLoggedIn: false,
+    profilePicture: null,
+    username: "subashraja3",
+    fullName: "Subash Raja",
+    isLoggedIn: true, // set to false after development,
   },
   registerDetails: registerDetailsInitial,
   loginDetails: loginDetailsInitial,

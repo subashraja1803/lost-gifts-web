@@ -1,11 +1,11 @@
 import React from "react";
-import styles from "./Dashboard.module.scss";
-import NavigationBar from "../../molecules/NavigationBar";
+import LandingNavigationBar from "../../../../molecules/NavigationBar/LandingNavigationBar";
+import styles from "./LandingDashboard.module.scss";
 
-function Dashboard() {
+function LandingDashboard() {
   return (
-    <div className={styles.dashboard}>
-      <NavigationBar />
+    <div className={styles.landingDashboard}>
+      <LandingNavigationBar />
       <div className={styles.titleText}>Lost Gifts</div>
       <div className={styles.description}>
         <p>
@@ -21,4 +21,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default LandingDashboard;

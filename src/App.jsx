@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import "./App.css";
-import RouteSwitch from "./pages/base";
+import RouteSwitch from "./pages/base/RouteSwitch";
 import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
 import lostGiftsStore from "./store";

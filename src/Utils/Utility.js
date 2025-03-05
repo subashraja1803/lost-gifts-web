@@ -45,9 +45,55 @@ export default class Utility {
       text,
       process.env.REACT_APP_CRYPTO_KEY,
       {
-        iv: iv,
+        iv,
       }
     ).toString();
     return `${encryptedData}_${iv.toString()}`;
+  }
+
+  static nameToColor(name) {
+    let hash = 0;
+    for (let i = 0; i < name.length; i++) {
+      hash = name.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    let color = "#";
+    for (let i = 0; i < 3; i++) {
+      let value = (hash >> (i * 8)) & 0xff;
+      color += value.toString(16).padStart(2, "0");
+    }
+    return color;
+  }
+  static getContrastColor(bgColor) {
+    // Remove '#' if present
+    bgColor = bgColor.replace("#", "");
+
+    let r,
+      g,
+      b,
+      a = 1; // Default alpha to 1 (opaque)
+
+    if (bgColor.length === 8) {
+      // 8-digit hex (RGBA)
+      r = parseInt(bgColor.substring(0, 2), 16);
+      g = parseInt(bgColor.substring(2, 4), 16);
+      b = parseInt(bgColor.substring(4, 6), 16);
+      a = parseInt(bgColor.substring(6, 8), 16) / 255; // Convert alpha to range 0-1
+    } else {
+      // 6-digit hex (RGB)
+      r = parseInt(bgColor.substring(0, 2), 16);
+      g = parseInt(bgColor.substring(2, 4), 16);
+      b = parseInt(bgColor.substring(4, 6), 16);
+    }
+
+    // YIQ contrast formula
+    let yiq = (r * 299 + g * 587 + b * 114) / 1000;
+
+    // Determine black or white text color
+    let textColor = yiq >= 128 ? "#000000" : "#FFFFFF";
+
+    // Return RGBA if alpha exists, otherwise just the hex color
+    return a < 1
+      ? `rgba(${yiq >= 128 ? "0, 0, 0" : "255, 255, 255"}, ${a})`
+      : textColor;
   }
 }

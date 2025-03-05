@@ -40,12 +40,12 @@ function LoginButton({
             const { token } = data;
             document.cookie = `token=${token}`;
             document.cookie = `user=${loginPayload.username}`;
-            console.log(document.cookie);
             setUserDetails({
               ...userDetails,
               isLoggedIn: true,
             });
             navigate("/");
+            toast.error(message);
           } else if (status === "not ok") {
             toast.error(message);
           }
@@ -61,7 +61,7 @@ function LoginButton({
         type="primary"
         style={{
           fontFamily: "Quick Kiss",
-          fontSize: "1.5rem",
+          fontSize: "2rem",
           height: "fit-content",
         }}
         onClick={onLoginClick}

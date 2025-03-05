@@ -31,7 +31,7 @@ const Username = ({ registerDetails, setRegisterDetails }) => {
 
   const isNameValid = Utility.isAlphaNumericLowerCase(username);
   return (
-    <div className={styles.UserName}>
+    <div className={styles.userName}>
       <span>Username:</span>
       <div className={styles.formInput}>
         <Input
@@ -44,16 +44,16 @@ const Username = ({ registerDetails, setRegisterDetails }) => {
             Username must be AlphaNumeric with lowercase
           </span>
         )}
-        {username !== "" &&
-          (isUnique ? (
-            <div className={styles.checkMark}>
-              <FcApproval />
-            </div>
-          ) : (
-            <span className={styles.textBottomLeft}>
-              Username already present
-            </span>
-          ))}
+        {username !== "" && !isUnique && (
+          <span className={styles.textBottomLeft}>
+            Username already present
+          </span>
+        )}
+        {username !== "" && isUnique && isNameValid && (
+          <div className={styles.checkMark}>
+            <FcApproval />
+          </div>
+        )}
       </div>
     </div>
   );

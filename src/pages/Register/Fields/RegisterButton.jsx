@@ -31,7 +31,7 @@ function RegisterButton({ registerDetails }) {
         type="primary"
         style={{
           fontFamily: "Quick Kiss",
-          fontSize: "1.5rem",
+          fontSize: "2rem",
           height: "fit-content",
         }}
         onClick={onRegisterClick}
