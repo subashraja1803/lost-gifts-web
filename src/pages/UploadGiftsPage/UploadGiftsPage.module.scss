@@ -1,0 +1,19 @@
+.uploadGiftsPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .title {
+    margin-top: 4rem;
+    font-size: 4rem;
+  }
+
+  .inputContainer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    .label {
+      font-size: 2rem;
+    }
+  }
+}

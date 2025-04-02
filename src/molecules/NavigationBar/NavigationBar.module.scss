@@ -1,0 +1,39 @@
+.landingNavigationBar {
+  font-family: "Quick Kiss";
+  padding: 0 1rem;
+  background: rgba(175, 175, 175, 0.3);
+  height: 5rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 2rem;
+  color: #000000;
+  gap: 2rem;
+  .navigationItem {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    &:hover {
+      color: #003ab8;
+      cursor: pointer;
+    }
+  }
+}
+
+.loggedInNavBar {
+  font-family: "Quick Kiss";
+  padding: 0 1rem;
+  background: rgba(175, 175, 175, 0.3);
+  height: 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #000000;
+  gap: 2rem;
+  .leftNavContainer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+}

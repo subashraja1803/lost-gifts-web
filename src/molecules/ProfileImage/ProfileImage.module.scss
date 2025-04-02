@@ -1,0 +1,15 @@
+.profileImage {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+  .nameInitials {
+    font-size: 15px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+  }
+}

@@ -1,0 +1,21 @@
+@font-face {
+  font-family: "Daisy Days";
+  src: local("DaisyDays"),
+    url("./assets/fonts/DaisyDays.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Beautiful People";
+  src: local("Beautiful People"),
+    url("./assets/fonts/BeautifulPeople.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Quick Kiss";
+  src: local("QuickKiss"),
+    url("./assets/fonts/QuickKiss.ttf") format("truetype");
+}
+
+body {
+  font-family: "Quick Kiss", "Lucida Handwriting";
+}

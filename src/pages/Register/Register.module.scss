@@ -1,0 +1,63 @@
+.registerPage {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .registerTitle {
+    font-family: "Daisy Days";
+    font-size: 5rem;
+    padding: 1rem;
+    text-align: center;
+  }
+  .formItems {
+    min-width: 30rem;
+    max-width: 40rem;
+    font-family: "Quick Kiss";
+    text-align: left;
+    font-size: 2.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    .formInput {
+      position: relative;
+      .textBottomLeft {
+        position: absolute;
+        bottom: -1rem;
+        left: 0;
+        font-size: 1rem;
+        font-weight: bold;
+        color: rgb(39, 1, 108);
+        font-family: "Lucida Sans";
+      }
+      .checkMark {
+        position: absolute;
+        font-size: 1.7rem;
+        right: -2rem;
+        top: 28%;
+      }
+      .invalidText {
+        position: absolute;
+        bottom: -1rem;
+        right: 0;
+        font-size: 1rem;
+        font-weight: bold;
+        color: rgb(39, 1, 108);
+        font-family: "Lucida Sans";
+      }
+    }
+  }
+
+  .registerButton {
+    margin-top: 1rem;
+    text-align: center;
+  }
+  .loginRedirect {
+    text-align: center;
+    a {
+      color: #000000c9;
+      &:hover {
+        color: rgb(1, 60, 143);
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+.uploadGiftsButton {
+  border-radius: 50%;
+  height: 3rem;
+  width: 3rem;
+  background-color: #0078d4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: white;
+  cursor: pointer;
+  .uploadIcon {
+    transform: scale(1.5);
+  }
+}
